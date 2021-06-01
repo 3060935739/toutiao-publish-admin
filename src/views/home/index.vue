@@ -1,26 +1,19 @@
 <template>
   <div class="home-container">
-    
+    <img src="~@/views/home/home.png" alt="" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomeIndex',
-  created(){
-
-  },
+  name: "HomeIndex",
+  created() {},
   data() {
-    return {
-      
-    };
+    return {};
   },
-  methods: {
-    
-  },
+  methods: {},
 };
 </script>
 
 <style lang="less" scoped>
-
 </style>

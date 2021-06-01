@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import Login from '@/views/login/'
 import Home from '@/views/home/'
 import Layout from '@/views/layout/'
+import Article from '@/views/article/'
 
 Vue.use(VueRouter)
 
@@ -20,6 +21,11 @@ const routes = [{
             path: '', // path为空，会作为默认子路由渲染
             name: 'home',
             component: Home
+        }, {
+            path: '/article', // path为空，会作为默认子路由渲染
+            name: 'article',
+            component: Article
+
         }]
     },
 

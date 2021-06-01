@@ -29,7 +29,6 @@
         </el-dropdown>
       </el-header>
       <el-main class="main">
-        <img src="~@/views/layout/components/home.png" alt="" class="homeimg" />
         <!-- 子路由出口 -->
         <router-view></router-view>
       </el-main>
@@ -112,17 +111,14 @@ export default {
 .el-icon-s-fold {
   margin-right: 8px;
   font-size: 18px;
-  color: orange;
 }
 .el-icon-s-unfold {
   margin-right: 8px;
   font-size: 18px;
-  color: orange;
 }
 .headerText {
   font-size: 18px;
   font-weight: 700;
-  color: orange;
 }
 .avatar-warp {
   display: flex;
