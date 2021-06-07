@@ -48,9 +48,9 @@ request.interceptors.response.use(function(response) {
     const { status } = error.response
         // 超出状态码范围2XX来此
     if (status && status === 401) {
-        // Message('登录状态无效，请重新登录')
-        // window.localStorage.removeItem('user')
-        // router.push('/login')
+        Message('登录状态无效，请重新登录')
+        window.localStorage.removeItem('user')
+        router.push('/login')
     } else if (status === 403) {
         //未携带token或已过期 
         Message('未携带token或已过期 ')
