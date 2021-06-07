@@ -63,7 +63,7 @@ const router = new VueRouter({
 // next 放行方法
 router.beforeEach((to, from, next) => {
     const user = JSON.parse(window.localStorage.getItem('user'))
-    if (to.path !== '/login' && to.path !== '/') {
+    if (to.path !== '/login') {
         if (user) {
             next()
         } else {
