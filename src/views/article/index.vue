@@ -108,7 +108,12 @@
         <el-table-column prop="pubdate" label="发布时间"> </el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
-            <el-button type="primary" icon="el-icon-edit" circle></el-button>
+            <el-button
+              type="primary"
+              icon="el-icon-edit"
+              circle
+              @click="$router.push('./publish?id=' + scope.row.id.toString())"
+            ></el-button>
             <el-button
               type="danger"
               icon="el-icon-delete"
@@ -158,7 +163,7 @@ export default {
       channelId: null, // 查询文章的频道
       rangeDate: null, // 筛选的范围日期
       loading: true,
-      page:1,//当前页码
+      page: 1, //当前页码
     };
   },
   created() {

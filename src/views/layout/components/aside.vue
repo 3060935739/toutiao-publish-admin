@@ -1,7 +1,7 @@
 <template>
   <el-menu
     class="nav-menu"
-    default-active="/"
+    :default-active="$route.path"
     background-color="#fff"
     text-color="#000"
     active-text-color="hotpink"
@@ -9,7 +9,7 @@
     :collapse="isCollapse"
   >
     <div>
-      <img src="./toutiao.png" alt="" class="toutiao" />
+      <img src="./toutiao.png" alt="" class="toutiao"/>
     </div>
     <el-menu-item index="/" class="firstItem" >
       <i class="el-icon-s-home"></i>
@@ -31,10 +31,10 @@
       <i class="iconfont icon-commentdots-fill"></i>
       <span slot="title">评论管理</span>
     </el-menu-item>
-    <el-menu-item index="/fans">
+    <!-- <el-menu-item index="/fans">
       <i class="iconfont icon-fans"></i>
       <span slot="title">粉丝管理</span>
-    </el-menu-item>
+    </el-menu-item> -->
     <el-menu-item index="/settings">
       <i class="el-icon-setting"></i>
       <span slot="title">个人设置</span>

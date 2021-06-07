@@ -1,6 +1,8 @@
 // 基于axios封装的请求模块
 import axios from 'axios'
 import JSONbig from 'json-bigint'
+import router from '@/router'
+import { Message } from 'element-ui'
 
 //创建一个axios实例
 const request = axios.create({
@@ -20,7 +22,6 @@ const request = axios.create({
             // 如果转换失败 则进入这里则直接返回
             return data
         }
-
     }],
 })
 
@@ -39,5 +40,28 @@ request.interceptors.request.use(
 )
 
 //响应拦截器
+// Add a response interceptor
+request.interceptors.response.use(function(response) {
+    // 状态码位于2xx 范围内的来此
+    return response;
+}, function(error) {
+    const { status } = error.response
+        // 超出状态码范围2XX来此
+    if (status && status === 401) {
+        Message('登录状态无效，请重新登录')
+        window.localStorage.removeItem('user')
+        router.push('/login')
+    } else if (status === 403) {
+        //未携带token或已过期 
+        Message('未携带token或已过期 ')
+    } else if (status === 400) {
+        //参数错误
+        Message('参数错误')
+    } else if (status >= 500) {
+        //服务端错误
+        Message('服务端错误')
+    }
+    return Promise.reject(error);
+});
 
 export default request

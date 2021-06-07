@@ -39,6 +39,8 @@
 <script>
 import AppAside from "./components/aside";
 import { getUserProfile } from "@/api/user";
+import globalBus from "@/utils/global-bus";
+
 export default {
   name: "LayoutIndex",
   components: {
@@ -52,6 +54,11 @@ export default {
   },
   created() {
     this.loadUserProfile();
+    //注册自定义事件 当这个事件发布以后才执行
+    globalBus.$on("updataUser", (data) => {
+      this.user.name = data.name;
+      this.user.photo = data.photo;
+    });
   },
   methods: {
     //获取用户信息
